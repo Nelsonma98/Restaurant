@@ -19,5 +19,5 @@ export class ClientRestaurant {
   restaurant: Restaurant;
 
   @OneToMany(() => Order, (order) => order.clientRestaurant)
-  orders: Order[];
+  orderes: Order[];
 }

@@ -13,7 +13,7 @@ export class Order {
 
   @ManyToOne(
     () => ClientRestaurant,
-    (clientRestaurant) => clientRestaurant.orders,
+    (clientRestaurant) => clientRestaurant.orderes,
     {
       onDelete: 'CASCADE',
     },

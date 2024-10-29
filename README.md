@@ -32,6 +32,12 @@
 $ yarn install
 ```
 
+## Postgres (Docker)
+
+```bash
+$ docker-compose up -d
+```
+
 ## Running the app
 
 ```bash
@@ -43,19 +49,6 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
 
 ## Support
@@ -71,3 +64,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Información
+Esta API permite gestionar restaurantes, clientes y órdenes, estableciendo relaciones entre ellos para gestionar la capacidad de clientes en cada restaurante y gestionar las órdenes asociadas a ellos. Además de los clientes y restaurantes, la API permite crear órdenes, vinculándolas con una relación específica entre cliente y restaurante.
+
+### Documentación
+
+Para facilitar el uso y comprensión de la API, se dispone de la siguiente documentación y herramientas:
+
+1. **Colección de Postman** : La API cuenta con una colección de Postman que permite realizar todas las peticiones disponibles, facilitando la interacción con los endpoints sin necesidad de configurarlos manualmente. Puedes importar esta colección en Postman y utilizarla para probar los diferentes métodos de la API.
+2. http://localhost:3000/swagger. A través de esta interfaz, puedes explorar todos los endpoints de la API, revisar las especificaciones de cada uno y probarlos directamente desde el navegador.
+
+
+### Caracteristicas
+
+- **Gestión de Restaurantes** : Permite crear, actualizar y eliminar restaurantes, definiendo su capacidad máxima.
+- **Gestión de Clientes** : Posibilidad de crear, actualizar y eliminar clientes.
+- **Gestión de Órdenes** : La API permite realizar operaciones CRUD completas (crear, leer, actualizar y eliminar) sobre las órdenes. Cada orden contiene una descripción y está vinculada a una relación específica entre un cliente y un restaurante, permitiendo un seguimiento detallado de las órdenes realizadas en cada restaurante y por cada cliente.
+- **Relaciones entre Clientes y Restaurantes** : Controla la asociación entre clientes y restaurantes, respetando la capacidad de cada restaurante. Un restaurante no podrá exceder su capacidad máxima de clientes.
+
+La API está diseñada para facilitar la gestión de estos elementos con reglas de negocio claras, asegurando que un restaurante no pueda exceder su capacidad de clientes permitidos y que cada orden esté adecuadamente vinculado a una relación cliente-restaurante.

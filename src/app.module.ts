@@ -3,7 +3,7 @@ import { ClientModule } from './client/client.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
 import { OrderModule } from './order/order.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { typeOrmConfig } from './config/typeorm.config';
 import { ClientRestaurantModule } from './client-restaurant/client-restaurant.module';
 import configuration from './config/configuration';
@@ -15,7 +15,10 @@ import configuration from './config/configuration';
       load: [configuration],
       isGlobal: true,
     }),
-    TypeOrmModule.forRoot(typeOrmConfig),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: typeOrmConfig,
+    }),
     ClientModule,
     RestaurantModule,
     OrderModule,
